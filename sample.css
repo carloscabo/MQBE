@@ -1,0 +1,45 @@
+/* DESKTOP */
+@media all and (min-width:1px) {
+  body {
+    background-color: grey;
+  }
+  body:after {
+    content: 'desktop';
+    display:none;
+  }
+}
+
+/* SMALL DESKTOP */
+@media only screen and (max-width: 1200px) {
+  body {
+    background-color: orange;
+  }
+  /* To check from MQBE */
+  body:after {
+    content: 'small-desktop';
+    display:none;
+  }
+}
+
+/* TABLET */
+@media only screen and (max-width: 1024px) {
+  body {
+    background-color: cyan;
+  }
+  /* To check from MQBE */
+  body:after {
+    content: 'tablet';
+    display:none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: pink;
+  }
+  /* To check from MQBE */
+  body:after {
+    content: 'mobile';
+    display:none;
+  }
+}
