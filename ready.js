@@ -19,7 +19,7 @@ $(document).ready(function() {
   };
 
   MQBE.onleave_mobile = function() {
-    flexdestroy('.flexslider-mobile-only');
+    //flexdestroy('.flexslider-mobile-only');
     $('.list-filters').removeClass('expanded').find('> .title').off('click');
   };
 
