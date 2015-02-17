@@ -2,7 +2,7 @@
 
 This small function creates JS events that are fired when you enter or leave a CSS media query _state_, for instance from desktop to tablet... etc. It's useful when you need to start or stop some JS functionallity depending on MediaQuery changes / states.
 
-I developped it firstly for a project where several sliders must to be created on mobile only.
+ I developed it for a project where several sliders must be created on mobile only.
 
 # Requirements
 
@@ -32,7 +32,7 @@ First part depends on a little piece of CSS, where you define your mediaquery br
       }
       /* To check from MQBE */
       body:after {
-        content: 'small-desktop'; /* <- string that defines this state */
+        content: 'small_desktop'; /* <- string that defines this state */
         display:none;
       }
     }
