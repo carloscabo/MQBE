@@ -12,7 +12,7 @@ I developped it firstly for a project where several sliders must to be created o
 
 ## First
 
-First part depends on a little piece of CSS, where you define your mediaquery breakpoint you must add an string to idenfy that state from the JS. It's easier that it sounds. Take a look to the code below.
+First part depends on a little piece of CSS, where you define your mediaquery breakpoints. You must add an string to idenfy that state from the JS. It's easier that it sounds. Take a look to the code below.
 
     /* DESKTOP */
     @media all and (min-width:1px) {
