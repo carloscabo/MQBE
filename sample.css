@@ -16,7 +16,7 @@
   }
   /* To check from MQBE */
   body:after {
-    content: 'small-desktop';
+    content: 'small_desktop';
     display:none;
   }
 }
