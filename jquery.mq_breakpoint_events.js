@@ -1,8 +1,7 @@
 /*
 Mediaquery breakpoint event
-Small lib that fires events when you enter / leave a CSS mediaquery. by Carlos Cabo (@putuko) 12 / 21014
-
-http://gitbub....
+Small lib that fires events when you enter / leave a CSS mediaquery. by Carlos Cabo (@putuko) 01 / 21015
+https://github.com/carloscabo/MQBE
 
 */
 
