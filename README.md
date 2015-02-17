@@ -1,6 +1,6 @@
 # MQBE. Media Query Breakpoint Events
 
-This small function creates JS events that are fired when you enter or leave a CSS media query, state, for instance from desktop to tablet... etc. Its useful when you need to launc or stop some JS functionallity when MediaQuery chancges.
+This small function creates JS events that are fired when you enter or leave a CSS media query _state_, for instance from desktop to tablet... etc. It's useful when you need to start or stop some JS functionallity depending on MediaQuery changes / states.
 
 I developped it firstly for a project where several sliders must to be created on mobile only.
 
@@ -62,12 +62,12 @@ First part depends on a little piece of CSS, where you define your mediaquery br
 
 ## Second
 
-Include the JS library `jquery.mq_breakpoint_events.js` in you project, and be sure you have `JQuery` too.
+Include the JS library `jquery.mq_breakpoint_events.js` in you project, and be sure you have `JQuery` included too.
 
 ## Third
 
-Define you events related to your CSS breakpoints in `domready`.
-You have two events avalibale for each MediaQuery state: `onenter`, and `onleave`. `onenter` its also fired when the page loads the first time.
+Define you events related to your CSS breakpoint names on `domready`.
+You have two events available for each MediaQuery state: `onenter`, and `onleave`. `onenter` its also fired when the page loads the first time.
 
 Finally remember initialize MQBE with `MBQE.init();`.
 Below you have an example.
@@ -88,8 +88,7 @@ Below you have an example.
       };
 
       MQBE.onleave_mobile = function() {
-        //flexdestroy('.flexslider-mobile-only');
-        $('body').html('<p>Entered mobile</p>');
+        flexdestroy('.flexslider-mobile-only');
       };
 
       MQBE.init();
