@@ -99,6 +99,6 @@ Below you have an example.
 
 In the repo you have an example, I recommend yopu to take a look to it to fully understand the idea.
 
-[Demo included in this repo](http://rawgit.com/carloscabo/MQBE/master/index.html)
+[Demo included in this repo](http://htmlpreview.github.io/?https://github.com/carloscabo/MQBE/blob/master/index.html)
 
 
