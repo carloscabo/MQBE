@@ -24,7 +24,7 @@ var MQBE = {
 
   // Start listening window resizes
   start_listener: function() {
-    $( window ).resize(function() {
+    $(window).on('resize orientationchange', function() {
       MQBE.check_state();
     });
   },
