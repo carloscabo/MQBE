@@ -15,8 +15,6 @@ var MQBE = {
 
   init: function() {
     if (this.detect_mq_support()) {
-      var state = this.get_current_state();
-      this.data.current_state = state;
       this.check_state();
       this.start_listener();
     }
@@ -31,16 +29,17 @@ var MQBE = {
 
   // If state changed sets the data vars and tries to launch the callback (if exists)
   check_state: function () {
-    var state = this.get_current_state();
-    if ( state !== this.data.current_state) {
-      this.data.previous_state = this.data.current_state;
-      this.data.current_state = state;
-      if (typeof MQBE['onleave_'+this.data.previous_state] !== 'undefined') {
+    this.data.current_state = this.get_current_state();
+    if ( this.data.previous_state !== this.data.current_state) {
+      // On leave state it' only fired when previous_state !== null
+      // So it's never fired on first run
+      if (typeof MQBE['onleave_'+this.data.previous_state] !== 'undefined' && this.data.previous_state !== null) {
         MQBE['onleave_'+this.data.previous_state]();
       }
       if (typeof MQBE['onenter_'+this.data.current_state] !== 'undefined') {
         MQBE['onenter_'+this.data.current_state]();
       }
+      this.data.previous_state = this.data.current_state;
     }
   },
 
