@@ -1,5 +1,5 @@
 /*
-Mediaquery breakpoint event
+Mediaquery breakpoint event V.1.01
 Small lib that fires events when you enter / leave a CSS mediaquery. by Carlos Cabo (@putuko) 01 / 21015
 https://github.com/carloscabo/MQBE
 
@@ -45,7 +45,7 @@ var MQBE = {
 
   get_current_state: function () {
     var state = window.getComputedStyle(document.body,':after').getPropertyValue('content');
-    state = state.replace( /"/g,''); // Firefox bugfix
+    state = state.replace( /["']/g,''); // Firefox / Chrome 43 bugfix
     return state;
   },
 

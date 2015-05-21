@@ -101,4 +101,7 @@ In the repo you have an example, I recommend you to take a look to it to fully u
 
 [Demo included in this repo](http://htmlpreview.github.io/?https://github.com/carloscabo/MQBE/blob/master/index.html)
 
+## Fixes
+
+- V.1.01 Chrome 43 returns state with single quotes **"'destop'"**, added regex to clean that extra quotes
 
