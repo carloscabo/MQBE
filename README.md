@@ -67,33 +67,54 @@ Include the JS library `jquery.mq_breakpoint_events.js` in you project, and be s
 ## Third
 
 Define you events related to your CSS breakpoint names on `domready`.
-You have two events available for each MediaQuery state: `onenter`, and `onleave`. `onenter` its also fired when the page loads the first time.
+You have two events available for each MediaQuery state: `enter`, and `leave`. `enter` its also fired when the page loads the first time.
 
 Finally remember initialize MQBE with `MBQE.init();`.
 Below you have an example.
 
-    $(document).ready(function() {
+````javascript
+$(document).ready(function() {
 
-      MQBE.onenter_mobile = function() {
-        // Especial flexsliders
-        $('.flexslider-mobile-only').flexslider({
-            animation: "slide",
-            controlNav: false
-        });
-        // Filter groups
-        $('.list-filters > .title').on('click', function() {
-          $(this).parent().toggleClass('expanded');
-        });
-        // Nested flexslider
-      };
-
-      MQBE.onleave_mobile = function() {
-        flexdestroy('.flexslider-mobile-only');
-      };
-
-      MQBE.init();
-
+  MQBE.on('enter', 'mobile', function() {
+    // Especial flexsliders
+    $('.flexslider-mobile-only').flexslider({
+      animation: "slide",
+      controlNav: false
     });
+    // Filter groups
+    $('.list-filters > .title').on('click', function() {
+      $(this).parent().toggleClass('expanded');
+    });
+    // Nested flexslider
+  });
+
+  MQBE.on('leave', 'mobile', function() {
+    flexdestroy('.flexslider-mobile-only');
+  });
+
+  // Allways remember to initialize
+  MQBE.init();
+
+});
+````
+
+You can remove the event anytime using the `off` method.
+
+````javascript
+MQBE.off('enter', 'desktop');
+````
+
+And also _chain_ several calls to the methods...
+
+````javascript
+MQBE.on('enter', 'desktop', function() {
+    $('body').prepend('<p>Entered desktop</p>')
+  }).on('enter', 'desktop', function() {
+    console.log('Secondary event added to the very state!');
+  }).on('enter', 'mobile', function() {
+    //...
+  });
+````
 
 ## Take a look to the example
 
@@ -102,6 +123,8 @@ In the repo you have an example, I recommend you to take a look to it to fully u
 [Demo included in this repo](http://htmlpreview.github.io/?https://github.com/carloscabo/MQBE/blob/master/index.html)
 
 ## Fixes
+
+- V.1.03 Added event queue, and nex sintax. Added **off** method, and method chainning.
 
 - V.1.01 Chrome 43 returns state with single quotes **"'destop'"**, added regex to clean that extra quotes
 
