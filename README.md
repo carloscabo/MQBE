@@ -14,51 +14,55 @@ This small function creates JS events that are fired when you enter or leave a C
 
 First part depends on a little piece of CSS, where you define your mediaquery breakpoints. You must add an string to idenfy that state from the JS. It's easier that it sounds. Take a look to the code below.
 
-    /* DESKTOP */
-    @media all and (min-width:1px) {
-      body {
-        background-color: grey;
-      }
-      body:after {
-        content: 'desktop'; /* <- string that defines this state */
-        display:none;
-      }
-    }
+**Use only [a-zA-Z_] chars to define the string, and don't use hyphens ` - `**
 
-    /* SMALL DESKTOP */
-    @media only screen and (max-width: 1200px) {
-      body {
-        background-color: orange;
-      }
-      /* To check from MQBE */
-      body:after {
-        content: 'small_desktop'; /* <- string that defines this state */
-        display:none;
-      }
-    }
+````css
+/* DESKTOP */
+@media all and (min-width:1px) {
+  body {
+    background-color: grey;
+  }
+  body:after {
+    content: 'desktop'; /* <- string that defines this state */
+    display:none;
+  }
+}
 
-    /* TABLET */
-    @media only screen and (max-width: 1024px) {
-      body {
-        background-color: cyan;
-      }
-      /* To check from MQBE */
-      body:after {
-        content: 'tablet'; /* <- string that defines this state */
-        display:none;
-      }
-    }
+/* SMALL DESKTOP */
+@media only screen and (max-width: 1200px) {
+  body {
+    background-color: orange;
+  }
+  /* To check from MQBE */
+  body:after {
+    content: 'small_desktop'; /* <- string that defines this state */
+    display:none;
+  }
+}
 
-    @media only screen and (max-width: 768px) {
-      body {
-        background-color: pink;
-      }
-      /* To check from MQBE */
-      body:after {
-        content: 'mobile'; /* <- string that defines this state */
-        display:none;
-      }
-    }
+/* TABLET */
+@media only screen and (max-width: 1024px) {
+  body {
+    background-color: cyan;
+  }
+  /* To check from MQBE */
+  body:after {
+    content: 'tablet'; /* <- string that defines this state */
+    display:none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: pink;
+  }
+  /* To check from MQBE */
+  body:after {
+    content: 'mobile'; /* <- string that defines this state */
+    display:none;
+  }
+}
+````
 
 ## Second
 
@@ -98,7 +102,7 @@ $(document).ready(function() {
 });
 ````
 
-You can remove the event anytime using the `off` method.
+You can clean the events from any state using the `off` method.
 
 ````javascript
 MQBE.off('enter', 'desktop');
@@ -124,7 +128,7 @@ In the repo you have an example, I recommend you to take a look to it to fully u
 
 ## Fixes
 
-- V.1.03 Added event queue, and nex sintax. Added **off** method, and method chainning.
+- V.1.03 Added event queue, and nex syntax. Added **off** method, and method chainning.
 
-- V.1.01 Chrome 43 returns state with single quotes **"'destop'"**, added regex to clean that extra quotes
+- V.1.01 Chrome 43 returns state with single quotes **"'desktop'"**, added regex to clean that extra quotes
 
