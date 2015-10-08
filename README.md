@@ -4,8 +4,6 @@ This small function creates JS events that are fired when you enter or leave a C
 
  I developed it for a project where several sliders must be created on mobile only.
 
-# Requirements
-
 # Usage
 
 ## First
@@ -64,14 +62,12 @@ First part depends on a little piece of CSS, where you define your mediaquery br
 
 ## Second
 
-Include the JS library `jquery.mq_breakpoint_events.js` in you project, and be sure you have `JQuery` included too.
+Include the JS library `MQBE.x.xx.js` in you project.
 
 ## Third
 
 Define you events related to your CSS breakpoint names on `domready`.
 You have two events available for each MediaQuery state: `enter`, and `leave`. `enter` its also fired when the page loads the first time.
-
-Finally remember initialize MQBE with `MBQE.init();`.
 Below you have an example.
 
 ````javascript
