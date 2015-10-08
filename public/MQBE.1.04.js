@@ -18,7 +18,7 @@ var MQBE = {
   init: function() {
     if (this.detect_mq_support()) {
       this.check_state();
-      this.start_listener();
+      // this.start_listener();
     }
   },
 
@@ -29,11 +29,11 @@ var MQBE = {
   },
 
   // Start listening window resizes
-  start_listener: function() {
+  /*start_listener: function() {
     $(window).on('resize orientationchange', function() {
       MQBE.check_state();
     });
-  },
+  },*/
 
   // If state changed sets the data vars and tries to launch the callback (if exists)
   check_state: function () {
@@ -43,14 +43,14 @@ var MQBE = {
       // So it's never fired on first run
       if (typeof this.events.leave[this.data.previous_state] !== 'undefined' && this.events.leave[this.data.previous_state].length > 0 && this.data.previous_state !== null) {
         // Launch all events in queue
-        for (var i = 0, len = this.events.leave[this.data.previous_state].length; i < len; i++) {
+        for (i = 0, len = this.events.leave[this.data.previous_state].length; i < len; i++) {
           this.events.leave[this.data.previous_state][i].code();
         }
       }
       if (typeof this.events.enter[this.data.current_state] !== 'undefined' && this.events.enter[this.data.current_state].length > 0) {
         // Launch all events in queue
-        for (var j = 0, len = this.events.enter[this.data.current_state].length; j < len; j++) {
-          this.events.enter[this.data.current_state][j].code();
+        for (i = 0, len = this.events.enter[this.data.current_state].length; i < len; i++) {
+          this.events.enter[this.data.current_state][i].code();
         }
       }
       this.data.previous_state = this.data.current_state;
@@ -96,6 +96,9 @@ var MQBE = {
 
 }; //MQBE
 
+// Self init
+MQBE.init();
+
 // http://www.paulirish.com/2009/throttled-smartresize-jquery-event-handler/
 (function($,sr){
   // debouncing function from John Hann
@@ -122,12 +125,14 @@ var MQBE = {
   jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize orientationchange', debounce(fn)) : this.trigger(sr); };
 })(jQuery,'smartresize');
 
-// Start listener ASAP
-$(document).ready(function() {
-  $(window).on('smartresize', function() {
-    MQBE.check_state();
+// Start listener ASAP if mq are supported
+if (MQBE.mq_supported) {
+  $(document).ready(function() {
+    $(window).on('smartresize', function() {
+      MQBE.check_state();
+    });
   });
-});
+}
 
 /*
 MQBE.on('enter', 'tablet', function() {
@@ -136,10 +141,5 @@ MQBE.on('enter', 'tablet', function() {
 
 MQBE.on('enter', 'tablet', function() {
   console.log('Leave mediaquery: '+this.data.current_state);
-});
-
-$(document).ready(function() {
-  // La magia aquí!
-  MQBE.init();
 });
 */
