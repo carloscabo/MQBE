@@ -39,18 +39,18 @@ var MQBE = {
   check_state: function () {
     this.data.current_state = this.get_current_state();
     if ( this.data.previous_state !== this.data.current_state) {
-      // On leave state it' only fired when previous_state !== null
+      // On leave state it's only fired when previous_state !== null
       // So it's never fired on first run
       if (typeof this.events.leave[this.data.previous_state] !== 'undefined' && this.events.leave[this.data.previous_state].length > 0 && this.data.previous_state !== null) {
         // Launch all events in queue
-        for (i = 0, len = this.events.leave[this.data.previous_state].length; i < len; i++) {
-          this.events.leave[this.data.previous_state][i]();
+        for (var i = 0, len = this.events.leave[this.data.previous_state].length; i < len; i++) {
+          this.events.leave[this.data.previous_state][i].code();
         }
       }
       if (typeof this.events.enter[this.data.current_state] !== 'undefined' && this.events.enter[this.data.current_state].length > 0) {
         // Launch all events in queue
-        for (i = 0, len = this.events.enter[this.data.current_state].length; i < len; i++) {
-          this.events.enter[this.data.current_state][i]();
+        for (var j = 0, len = this.events.enter[this.data.current_state].length; j < len; j++) {
+          this.events.enter[this.data.current_state][j].code();
         }
       }
       this.data.previous_state = this.data.current_state;
@@ -78,7 +78,11 @@ var MQBE = {
     if (typeof this.events[action][state] === 'undefined') {
       this.events[action][state] = [];
     }
-    this.events[action][state].push(code);
+    var ev = {
+      fired: false,
+      code: code
+    };
+    this.events[action][state].push(ev);
     return this;
   },
 
@@ -91,6 +95,39 @@ var MQBE = {
   }
 
 }; //MQBE
+
+// http://www.paulirish.com/2009/throttled-smartresize-jquery-event-handler/
+(function($,sr){
+  // debouncing function from John Hann
+  // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+  var debounce = function (func, threshold, execAsap) {
+    var timeout;
+
+    return function debounced () {
+      var obj = this, args = arguments;
+      function delayed () {
+        if (!execAsap) {
+          func.apply(obj, args);
+        }
+        timeout = null;
+      }
+      if (timeout) {
+        clearTimeout(timeout);
+      } else if (execAsap) {
+        func.apply(obj, args);
+      }
+      timeout = setTimeout(delayed, threshold || 100);
+    };
+  };
+  jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize orientationchange', debounce(fn)) : this.trigger(sr); };
+})(jQuery,'smartresize');
+
+// Start listener ASAP
+$(document).ready(function() {
+  $(window).on('smartresize', function() {
+    MQBE.check_state();
+  });
+});
 
 /*
 MQBE.on('enter', 'tablet', function() {
