@@ -117,7 +117,7 @@ In the repo you have an example, I recommend you to take a look to it to fully u
 
 [Demo included in this repo](http://htmlpreview.github.io/?https://github.com/carloscabo/MQBE/blob/master/index.html)
 
-## Fixes / Chnagelog
+## Fixes / Changelog
 
 - V.1.04 Renamed to MQBE.v.js. Added debounced resize. Now library initializes itself.
 

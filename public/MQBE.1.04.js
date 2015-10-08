@@ -32,7 +32,7 @@ var MQBE = {
     this.data.current_state = this.get_current_state();
     if ( this.data.previous_state !== this.data.current_state) {
       // If there are on-leave actions fire them
-      if ( this.data.previous_state !== null && this.events.leave[this.data.previous_state] !== null && this.events.leave[this.data.previous_state].length > 0) {
+      if ( typeof this.events.leave[this.data.previous_state] !== 'undefined' && this.events.leave[this.data.previous_state] !== null && this.events.leave[this.data.previous_state].length > 0) {
         // Launch all events in queue
         for (i = 0, len = this.events.leave[this.data.previous_state].length; i < len; i++) {
           this.events.leave[this.data.previous_state][i]();
@@ -85,19 +85,22 @@ var MQBE = {
 
 }; //MQBE
 
-// Self init
-MQBE.init();
+// Self init IE9+ $.documentready
+document.addEventListener('DOMContentLoaded', function(event) {
+  // La magia aquí!
+  MQBE.init();
+
+  // Start listener ASAP if mq are supported
+  if (MQBE.data.mq_supported) {
+    debounced_resize(function() {
+      MQBE.check_state();
+    });
+  }
+});
 
 // Debounced resize
 // https://github.com/louisremi/jquery-smartresize/
 function debounced_resize(c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,100);};return c;}
-
-// Start listener ASAP if mq are supported
-if (MQBE.data.mq_supported) {
-  debounced_resize(function() {
-    MQBE.check_state();
-  });
-}
 
 /*
 MQBE.on('enter', 'tablet', function() {
