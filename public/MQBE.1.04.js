@@ -18,6 +18,7 @@ var MQBE = {
   init: function() {
     this.detect_mq_support();
     this.data.current_state = this.get_current_state();
+    this.data.previous_state = this.data.current_state;
   },
 
   // Event queue

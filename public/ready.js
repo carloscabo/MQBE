@@ -19,7 +19,7 @@ $(document).ready(function() {
     $('body').prepend('<p>'+counter+'. Entered small-desktop</p>');
     counter++;
   }).on('leave', 'small_desktop', function() {
-    $('body').prepend('<p>'+counter+'. Leaved small-desktop</p>');
+    $('body').prepend('<p>'+counter+'. --- > Leaved small-desktop</p>');
     counter++;
   });
 
@@ -34,17 +34,17 @@ $(document).ready(function() {
   });
 
   MQBE.on('leave', 'desktop', function() {
-    $('body').prepend('<p>'+counter+'. Leaved desktop</p>');
+    $('body').prepend('<p>'+counter+'. --- > Leaved desktop</p>');
     counter++;
   });
 
   MQBE.on('leave', 'tablet', function() {
-    $('body').prepend('<p>'+counter+'. Leaved tablet</p>');
+    $('body').prepend('<p>'+counter+'. --- > Leaved tablet</p>');
     counter++;
   });
 
   MQBE.on('leave', 'mobile', function() {
-    $('body').prepend('<p>'+counter+'. Leaved mobile</p>');
+    $('body').prepend('<p>'+counter+'. --- > Leaved mobile</p>');
     counter++;
   });
 
