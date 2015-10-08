@@ -6,8 +6,6 @@ This small function creates JS events that are fired when you enter or leave a C
 
 # Requirements
 
-`JQuery`
-
 # Usage
 
 ## First
@@ -96,9 +94,6 @@ $(document).ready(function() {
     flexdestroy('.flexslider-mobile-only');
   });
 
-  // Allways remember to initialize
-  MQBE.init();
-
 });
 ````
 
@@ -126,7 +121,9 @@ In the repo you have an example, I recommend you to take a look to it to fully u
 
 [Demo included in this repo](http://htmlpreview.github.io/?https://github.com/carloscabo/MQBE/blob/master/index.html)
 
-## Fixes
+## Fixes / Chnagelog
+
+- V.1.04 Renamed to MQBE.v.js. Added debounced resize. Now library initializes itself.
 
 - V.1.03 Added event queue, and nex syntax. Added **off** method, and method chainning.
 
