@@ -86,17 +86,19 @@ var MQBE = {
 }; //MQBE
 
 // Self init IE9+ $.documentready
-document.addEventListener('DOMContentLoaded', function(event) {
-  // La magia aquí!
-  MQBE.init();
+if (document.addEventListener) {
+  document.addEventListener('DOMContentLoaded', function(event) {
+    // La magia aquí!
+    MQBE.init();
 
-  // Start listener ASAP if mq are supported
-  if (MQBE.data.mq_supported) {
-    debounced_resize(function() {
-      MQBE.check_state();
-    });
-  }
-});
+    // Start listener ASAP if mq are supported
+    if (MQBE.data.mq_supported) {
+      debounced_resize(function() {
+        MQBE.check_state();
+      });
+    }
+  });
+}
 
 // Debounced resize
 // https://github.com/louisremi/jquery-smartresize/
