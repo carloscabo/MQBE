@@ -1,0 +1,29 @@
+/* DESKTOP */
+body:after {
+  content: 'desktop';
+  display: none;
+}
+
+/* SMALL DESKTOP */
+@media only screen and (max-width: 1200px) {
+  body:after {
+    content: 'small_desktop';
+    display: none;
+  }
+}
+
+/* TABLET */
+@media only screen and (max-width: 1024px) {
+  body:after {
+    content: 'tablet';
+    display: none;
+  }
+}
+
+/* MOBILE */
+@media only screen and (max-width: 767px) {
+  body:after {
+    content: 'mobile';
+    display: none;
+  }
+}
