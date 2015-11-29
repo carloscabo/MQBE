@@ -20,7 +20,6 @@ body:after {
 @media only screen and (max-width: 1200px) {
   body:after {
     content: 'small_desktop';
-    display: none;
   }
 }
 
@@ -28,7 +27,6 @@ body:after {
 @media only screen and (max-width: 1024px) {
   body:after {
     content: 'tablet';
-    display: none;
   }
 }
 
@@ -36,6 +34,5 @@ body:after {
 @media only screen and (max-width: 767px) {
   body:after {
     content: 'mobile';
-    display: none;
   }
 }
