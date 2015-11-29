@@ -1,9 +1,15 @@
-/*
-Mediaquery breakpoint event (MQBE)
-Small lib that fires events when you enter / leave a CSS mediaquery. by Carlos Cabo (@putuko) 01 / 21015
-https://github.com/carloscabo/MQBE
-
-*/
+/*!
+ * Media Query breakpoints events (MQBE) 1.0.5
+ * Small lib that fires events when you enter / leave a CSS mediaquery.
+ * 
+ * https://github.com/carloscabo/MQBE
+ * 
+ * Copyright 2015, Carlos Cabo
+ * 
+ * Licensed under MIT
+ * 
+ * Released on: November 29, 2015
+ */
 
 var MQBE = {
 

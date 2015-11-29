@@ -1,0 +1,52 @@
+{
+  "name": "MQBE",
+  "version": "1.0.5",
+  "description": "Small lib that fires events when you enter / leave a CSS mediaquery.",
+  "keywords": [
+    "mqbe",
+    "media query",
+    "mobile",
+    "tablet",
+    "responsive"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carloscabo/MQBE.git"
+  },
+  "bugs": {
+    "url": "https://github.com/carloscabo/MQBE/issues"
+  },
+  "author": "Carlos Cabo",
+  "homepage": "https://github.com/carloscabo/MQBE",
+  "license": [
+    "MIT"
+  ],
+  "main": "dist/mqbe.js",
+  "files": [
+    "dist",
+    "src",
+    "*.json",
+    "*.js",
+    ".css"
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "jshint": "~2.8.0",
+    "gulp": "~3.9.0",
+    "gulp-connect": "~2.2.0",
+    "gulp-uglify": "~1.5.1",
+    "gulp-sourcemaps": "~1.6.0",
+    "gulp-rename": "~1.2.2",
+    "gulp-header": "~1.7.1",
+    "gulp-sass": "~2.1.0",
+    "gulp-jshint": "~2.0.0",
+    "jshint-stylish": "~2.1.0",
+    "gulp-size": "^2.0.0"
+  },
+  "scripts": {
+    "test": "gulp dist"
+  },
+  "style": "dist/mqbe.css"
+}
