@@ -8,66 +8,50 @@ This small function creates JS events that are fired when you enter or leave a C
 
 ## First
 
-First part depends on a little piece of CSS, where you define your mediaquery breakpoints. You must add an string to idenfy that state from the JS. It's easier that it sounds. Take a look to the code below.
+First part depends on a little piece of CSS, where you can define your media query breakpoints. You must add an string to identify that state from the JS. It's easier that it sounds. Take a look to the code below.
 
 **Use only [a-zA-Z_] chars to define the string, and don't use hyphens ` - `**
 
 ````css
 /* DESKTOP */
 @media all and (min-width:1px) {
-  body {
-    background-color: grey;
-  }
   body:after {
     content: 'desktop'; /* <- string that defines this state */
-    display:none;
   }
 }
 
 /* SMALL DESKTOP */
 @media only screen and (max-width: 1200px) {
-  body {
-    background-color: orange;
-  }
-  /* To check from MQBE */
   body:after {
     content: 'small_desktop'; /* <- string that defines this state */
-    display:none;
   }
 }
 
 /* TABLET */
 @media only screen and (max-width: 1024px) {
-  body {
-    background-color: cyan;
-  }
-  /* To check from MQBE */
   body:after {
     content: 'tablet'; /* <- string that defines this state */
-    display:none;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  body {
-    background-color: pink;
-  }
-  /* To check from MQBE */
   body:after {
     content: 'mobile'; /* <- string that defines this state */
-    display:none;
   }
 }
 ````
 
+For the lazy ones, you can just include `dist/mqbe.min.css` which defines this 4 media queries.
+
 ## Second
 
-Include the JS library `MQBE.x.xx.js` in you project.
+Include the JS library `dist/mqbe.min.js` in you project.
 
 ## Third
 
 Define you events related to your CSS breakpoint names on `domready`.
-You have two events available for each MediaQuery state: `enter`, and `leave`. `enter` its also fired when the page loads the first time.
+You have two events available for each Media Query state: `enter`, and `leave`. `enter` its also fired when the page loads the first time.
+
 Below you have an example.
 
 ````javascript
@@ -113,15 +97,45 @@ MQBE.on('enter', 'desktop', function() {
 
 ## Take a look to the example
 
-In the repo you have an example, I recommend you to take a look to it to fully understand the idea.
+You have an example in the demo directory, I recommend you to take a look to it to fully understand the idea.
 
-[Demo included in this repo](http://htmlpreview.github.io/?https://github.com/carloscabo/MQBE/blob/master/index.html)
+[Demo included in this repo](http://htmlpreview.github.io/?https://github.com/carloscabo/MQBE/blob/master/demo/index.html).
+
+## Demo / Dist
+
+MQBE uses `gulp` to serve a demo/test server and build dist versions.
+
+### Prerequisites
+First you need to have node and gulp-cli installed on your environment.
+
+Then install all dependencies, in repo's root:
+
+```
+$ npm install
+```
+
+### Demo
+
+To test and develop you can start a connect server watching `src/*.js` and `src/*.scss` at `http://localhost:3000/`. 
+
+```bash
+$ gulp server
+## or just
+$ gulp
+```
+
+To build minified versions of MQBE in `dist/` you must run.
+
+```
+$ gulp dist
+```
 
 ## Fixes / Changelog
+
+- V.1.0.5 Added gulp to generate minified and demo files.
 
 - V.1.04 Renamed to MQBE.v.js. Added debounced resize. Now library initializes itself.
 
 - V.1.03 Added event queue, and nex syntax. Added **off** method, and method chainning.
 
 - V.1.01 Chrome 43 returns state with single quotes **"'desktop'"**, added regex to clean that extra quotes
-
