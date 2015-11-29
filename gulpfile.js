@@ -3,6 +3,7 @@
 
   var gulp        = require('gulp'),
       connect     = require('gulp-connect'),
+      open        = require('gulp-open'),
       rename      = require('gulp-rename'),
       header      = require('gulp-header'),
       path        = require('path'),
@@ -96,15 +97,18 @@
 
   gulp.task('connect', function () {
       return connect.server({
-          root: 'demo/',
+          root: './',
           livereload: true,
           port:'3000'
       });
   });
 
+  gulp.task('open', function () {
+    return gulp.src(paths.demo + 'index.html').pipe(open({ uri: 'http://localhost:3000/' + paths.demo + 'index.html'}));
+  });
   gulp.task('dist', ['styles', 'scripts', 'build']);
 
-  gulp.task('server', ['watch', 'connect']);
+  gulp.task('server', ['watch', 'connect', 'open']);
 
   gulp.task('default', ['server']);
 })();
