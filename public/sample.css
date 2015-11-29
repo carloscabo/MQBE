@@ -1,7 +1,12 @@
+body {
+  font-family: monospace;
+}
+
+
 /* DESKTOP */
 @media all and (min-width:1px) {
   body {
-    background-color: grey;
+    background-color: lightgray;
   }
   body:after {
     content: 'desktop';
