@@ -60,7 +60,6 @@
   gulp.task('build', function () {
     gulp.src(paths.scripts)
         .pipe(header(mqbe.banner, { pkg: mqbe.pkg, date: mqbe.date }))
-        .pipe(gulp.dest(paths.dist))
         .pipe(size({title: 'MQBE scripts'}))
         .pipe(jshint())
         .pipe(jshint.reporter(stylish))
