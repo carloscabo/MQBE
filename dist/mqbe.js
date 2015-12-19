@@ -8,7 +8,7 @@
  * 
  * Licensed under MIT
  * 
- * Released on: November 29, 2015
+ * Released on: December 19, 2015
  */
 
 (function($, undefined) {
@@ -23,8 +23,9 @@
     current_state = get_current_state();
 
     if ( previous_state !== current_state) {
-      $doc.trigger('mqbe.leave.' + previous_state);
-      $doc.trigger('mqbe.enter.' + current_state);
+      $doc.trigger('mqbe');
+      $doc.trigger('leave.' + previous_state + '.mqbe');
+      $doc.trigger('enter.' + current_state + '.mqbe');
     }
     return current_state;
   }

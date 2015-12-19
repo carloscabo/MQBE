@@ -6,37 +6,40 @@
   // //////////////////////////////////
 
   $(document)
-    .on('mqbe.enter.desktop', function() {
+    .on('enter.desktop.mqbe', function() {
       $('body').prepend('<p>'+counter+'. Entered desktop</p>');
       counter++;
     })
-    .on('mqbe.enter.small_desktop', function() {
+    .on('enter.small_desktop.mqbe', function() {
       $('body').prepend('<p>'+counter+'. Entered small-desktop</p>');
       counter++;
     })
-    .on('mqbe.enter.tablet', function() {
+    .on('enter.tablet.mqbe', function() {
       $('body').prepend('<p>'+counter+'. Entered tablet</p>');
       counter++;
     })
-    .on('mqbe.enter.mobile', function() {
+    .on('enter.mobile.mqbe', function() {
       $('body').prepend('<p>'+counter+'. Entered mobile</p>');
       counter++;
     })
-    .on('mqbe.leave.desktop', function() {
+    .on('leave.desktop.mqbe', function() {
       $('body').prepend('<p>'+counter+'. --- > Leaved desktop</p>');
       counter++;
     })
-    .on('mqbe.leave.small_desktop', function() {
+    .on('leave.small_desktop.mqbe', function() {
       $('body').prepend('<p>'+counter+'. --- > Leaved small-desktop</p>');
       counter++;
     })
-    .on('mqbe.leave.tablet', function() {
+    .on('leave.tablet.mqbe', function() {
       $('body').prepend('<p>'+counter+'. --- > Leaved tablet</p>');
       counter++;
     })
-    .on('mqbe.leave.mobile', function() {
+    .on('leave.mobile.mqbe', function() {
       $('body').prepend('<p>'+counter+'. --- > Leaved mobile</p>');
       counter++;
+    })
+    .on('mqbe', function() {
+      console.log('Media Query Breakpoint Event');
     });
 
 })();
