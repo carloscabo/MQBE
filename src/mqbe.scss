@@ -5,21 +5,21 @@ body:after {
 }
 
 /* SMALL DESKTOP */
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-device-width: 1200px) {
   body:after {
     content: 'small_desktop';
   }
 }
 
 /* TABLET */
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-device-width: 1024px) {
   body:after {
     content: 'tablet';
   }
 }
 
 /* MOBILE */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-device-width: 767px) {
   body:after {
     content: 'mobile';
   }

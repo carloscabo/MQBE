@@ -21,20 +21,20 @@ First part depends on a little piece of CSS, where you can define your media que
 }
 
 /* SMALL DESKTOP */
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-device-width: 1200px) {
   body:after {
     content: 'small_desktop'; /* <- string that defines this state */
   }
 }
 
 /* TABLET */
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-device-width: 1024px) {
   body:after {
     content: 'tablet'; /* <- string that defines this state */
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-device-width: 768px) {
   body:after {
     content: 'mobile'; /* <- string that defines this state */
   }
@@ -130,6 +130,8 @@ $ gulp dist
 ```
 
 ## Fixes / Changelog
+
+- V.2.0.1 Changing max-width to max-device-width in mediaqueries due to browser zoom issues.
 
 - V.2.0.0 Delegate events on jquery instead custom queues. Namespace `.mqbe`. Add generic event `.mqbe` on every breakpoint.
 

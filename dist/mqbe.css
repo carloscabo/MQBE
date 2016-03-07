@@ -1,14 +1,14 @@
 /*!
- * Media Query breakpoints events (MQBE) 2.0.0
+ * Media Query breakpoints events (MQBE) 2.0.1
  * Small lib that fires events when you enter / leave a CSS mediaquery.
  * 
  * https://github.com/carloscabo/MQBE
  * 
- * Copyright 2015, Carlos Cabo
+ * Copyright 2016, Carlos Cabo
  * 
  * Licensed under MIT
  * 
- * Released on: December 19, 2015
+ * Released on: March 7, 2016
  */
 /* DESKTOP */
 body:after {
@@ -17,21 +17,21 @@ body:after {
 }
 
 /* SMALL DESKTOP */
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-device-width: 1200px) {
   body:after {
     content: 'small_desktop';
   }
 }
 
 /* TABLET */
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-device-width: 1024px) {
   body:after {
     content: 'tablet';
   }
 }
 
 /* MOBILE */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-device-width: 767px) {
   body:after {
     content: 'mobile';
   }
