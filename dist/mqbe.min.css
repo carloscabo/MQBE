@@ -9,4 +9,4 @@ body:after { content: 'desktop'; display: none; }
 @media only screen and (max-width: 1024px) { body:after { content: 'tablet'; } }
 
 /* MOBILE */
-@media only screen and (max-width: 76px) { body:after { content: 'mobile'; } }
+@media only screen and (max-width: 767px) { body:after { content: 'mobile'; } }

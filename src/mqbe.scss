@@ -19,7 +19,7 @@ body:after {
 }
 
 /* MOBILE */
-@media only screen and (max-width: 76px) {
+@media only screen and (max-width: 767px) {
   body:after {
     content: 'mobile';
   }
