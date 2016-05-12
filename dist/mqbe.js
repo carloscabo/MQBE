@@ -8,7 +8,7 @@
  * 
  * Licensed under MIT
  * 
- * Released on: March 7, 2016
+ * Released on: May 12, 2016
  */
 
 (function($, undefined) {
@@ -43,7 +43,13 @@
 
   // Debounced resize
   // https://github.com/louisremi/jquery-smartresize/
-  function on_resize(c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,250);};return c;}
+  function on_resize(c,t){
+    window.onresize = function(){
+      clearTimeout(t);
+      t = setTimeout(c,250);
+    };
+    return c;
+  }
 
   if (detect_mq_support()) {
     $(function() {

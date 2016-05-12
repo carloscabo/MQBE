@@ -30,7 +30,13 @@
 
   // Debounced resize
   // https://github.com/louisremi/jquery-smartresize/
-  function on_resize(c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,250);};return c;}
+  function on_resize(c,t){
+    window.onresize = function(){
+      clearTimeout(t);
+      t = setTimeout(c,250);
+    };
+    return c;
+  }
 
   if (detect_mq_support()) {
     $(function() {
