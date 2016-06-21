@@ -2,22 +2,37 @@
 
 This small function creates JQuery events that are fired when you enter or leave a CSS media query _state_, for instance from desktop to tablet... etc. It's useful when you need to start or stop some JS functionallity depending on MediaQuery changes / states.
 
- I developed it for a project where several sliders must be created on mobile only.
+# Installation
 
-# Usage
+## 1a. Use as Rails gem
 
-## First - Include CSS
+Simply include in your `gemfile`:
+```
+gem 'MQBE'
+```
 
-First part depends on a little piece of CSS, where you can define your media query breakpoints. You must add an string to identify that state from the JS. It's easier that it sounds. Take a look to the code below.
+and run `bundle install`
+
+Then add in your `application.js` (its recommend to be included just after `JQuery`)
+```
+//= require mqbe
+```
+
+## 1b. Use _standalone_
+
+If you want to add it to your project by hand, copy `dist/mqbe.js` or `dist/mqbe.min.js` (minified) in your project and be sure that its included in the pages **after JQuery**.
+
+## 2. Include CSS
+
+The functionallity of MQBE depends on a little piece of CSS, where you can define your media query breakpoints. You must add an string to identify that state from the JS. It's easier that it sounds. Take a look to the code below.
 
 **Use only [a-zA-Z_] chars to define the string, and don't use hyphens ` - `**
 
 ```css
 /* DESKTOP */
-@media all and (min-width:1px) {
-  body:after {
-    content: 'desktop'; /* <- string that defines this state */
-  }
+body:after {
+  content: 'desktop'; /* <- string that defines this state */
+  display: none;
 }
 
 /* SMALL DESKTOP */
@@ -41,13 +56,9 @@ First part depends on a little piece of CSS, where you can define your media que
 }
 ```
 
-For the lazy ones, you can just include `dist/mqbe.min.css` which defines this 4 media queries.
+For the lazy ones, you can just include `dist/mqbe.min.css` which defines this 4 media queries and customize the breakpoints values to your project's needs.
 
-## Second - Include JS
-
-Include the JS library `dist/mqbe.min.js` in you project.
-
-## Third - Add events
+## 3. Usage: Add events
 
 Define you events related to your CSS breakpoint names on `domready`.
 You have two events available for each Media Query state: `enter`, and `leave`.
@@ -130,6 +141,8 @@ $ gulp dist
 ```
 
 ## Fixes / Changelog
+
+- V.2.0.3 First Rails Gem release.
 
 - V.2.0.2 Changing ot max-width and breakpoints in px.
 

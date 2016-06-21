@@ -8,7 +8,7 @@
       header      = require('gulp-header'),
       path        = require('path'),
       uglify      = require('gulp-uglify'),
-      size       = require('gulp-size'),
+      size        = require('gulp-size'),
       sourcemaps  = require('gulp-sourcemaps'),
       jshint      = require('gulp-jshint'),
       stylish     = require('jshint-stylish'),
@@ -17,7 +17,9 @@
         scripts: 'src/*.js',
         styles: 'src/*.scss',
         dist: 'dist/',
-        demo: 'demo/'
+        demo: 'demo/',
+        /* GEM PATHS */
+        gem_js:  'app/assets/javascripts',
       },
       mqbe = {
         pkg: require('./package.json'),
@@ -47,6 +49,7 @@
     gulp.src(paths.scripts)
         .pipe(header(mqbe.banner, { pkg: mqbe.pkg, date: mqbe.date }))
         .pipe(gulp.dest(paths.dist))
+        .pipe(gulp.dest(paths.gem_js))
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
   });
@@ -56,6 +59,10 @@
         .pipe(header(mqbe.banner, { pkg: mqbe.pkg, date: mqbe.date }))
         .pipe(sass({outputStyle: 'expanded'}))
         .pipe(gulp.dest(paths.dist));
+  });
+
+  gulp.task('update_gem_version', function () {
+    require('fs').writeFileSync('lib/MQBE/version.rb', "module MQBE\n  VERSION = \""+mqbe.pkg.version+"\"\nend");
   });
 
   gulp.task('build', function () {
@@ -105,7 +112,8 @@
   gulp.task('open', function () {
     return gulp.src(paths.demo + 'index.html').pipe(open({ uri: 'http://localhost:3000/' + paths.demo + 'index.html'}));
   });
-  gulp.task('dist', ['styles', 'scripts', 'build']);
+
+  gulp.task('dist', ['styles', 'scripts', 'build', 'update_gem_version']);
 
   gulp.task('server', ['watch', 'connect', 'open']);
 

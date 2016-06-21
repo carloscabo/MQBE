@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["carloscabo"]
   spec.email         = ["carloscabo@gmail.com"]
 
-  spec.summary       = "Media Query Breakpoint Events on JQuery"
-  spec.description   = "This small function creates JQuery events that are fired when you enter or leave a CSS media query state, for instance from desktop to tablet... etc. It's useful when you need to start or stop some JS functionallity depending on MediaQuery changes / states."
+  spec.summary       = "Small JS lib that fires events when you enter / leave a CSS mediaquery"
+  spec.description   = "This small javascript library creates JQuery events that are fired when you enter or leave a CSS media query state, for instance from desktop to tablet... etc. It's useful when you need to start or stop some JS functionallity depending on MediaQuery changes / states."
   spec.homepage      = "https://github.com/carloscabo/MQBE"
   spec.license       = "MIT"
 
