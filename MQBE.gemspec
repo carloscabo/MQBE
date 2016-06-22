@@ -14,6 +14,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/carloscabo/MQBE"
   spec.license       = "MIT"
 
+  # spec.metadata['allowed_push_host'] = "https://rubygems.org"
+
   spec.files         = Dir["{lib,dist}/**/*"]
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
