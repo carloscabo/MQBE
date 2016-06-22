@@ -18,8 +18,6 @@
         styles: 'src/*.scss',
         dist: 'dist/',
         demo: 'demo/',
-        /* GEM PATHS */
-        gem_js:  'app/assets/javascripts',
       },
       mqbe = {
         pkg: require('./package.json'),
@@ -49,7 +47,6 @@
     gulp.src(paths.scripts)
         .pipe(header(mqbe.banner, { pkg: mqbe.pkg, date: mqbe.date }))
         .pipe(gulp.dest(paths.dist))
-        .pipe(gulp.dest(paths.gem_js))
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
   });
