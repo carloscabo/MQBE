@@ -1,7 +1,7 @@
 {
   "name": "MQBE",
-  "version": "2.0.1",
-  "description": "Small lib that fires events when you enter / leave a CSS mediaquery.",
+  "version": "2.0.3",
+  "description": "Small JS lib that fires events when you enter / leave a CSS mediaquery.",
   "keywords": [
     "mqbe",
     "media query",
