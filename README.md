@@ -8,7 +8,7 @@ This small function creates JQuery events that are fired when you enter or leave
 
 Simply include in your `gemfile`:
 ```
-gem 'MQBE'
+gem 'mqbe'
 ```
 
 and run `bundle install`
