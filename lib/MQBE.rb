@@ -1,6 +1,6 @@
-require "MQBE/version"
 require "MQBE/engine"
+require "mqbe/version"
 
-module MQBE
+module Mqbe
 
 end

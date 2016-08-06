@@ -1,4 +1,4 @@
-module MQBE
+module Mqbe
   module Rails
     class Engine < ::Rails::Engine
       initializer 'mqbe' do | app |
