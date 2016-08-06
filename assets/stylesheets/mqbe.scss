@@ -1,0 +1,32 @@
+// Vars
+$mobile: 767px;
+$tablet: 1023px;
+$small-desktop: 1200px;
+
+
+/* DESKTOP */
+body:after {
+  content: 'desktop';
+  display: none;
+}
+
+/* SMALL DESKTOP */
+@media only screen and (max-width: $small-desktop) {
+  body:after {
+    content: 'small-desktop';
+  }
+}
+
+/* TABLET */
+@media only screen and (max-width: $tablet) {
+  body:after {
+    content: 'tablet';
+  }
+}
+
+/* MOBILE */
+@media only screen and (max-width: $mobile) {
+  body:after {
+    content: 'mobile';
+  }
+}

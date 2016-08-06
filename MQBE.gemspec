@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   # spec.metadata['allowed_push_host'] = "https://rubygems.org"
 
-  spec.files         = Dir["{lib,dist}/**/*"]
+  spec.files         = Dir["{lib,assets}/**/*"]
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]

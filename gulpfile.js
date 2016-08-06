@@ -14,8 +14,8 @@
       stylish     = require('jshint-stylish'),
       sass        = require('gulp-sass'),
       paths = {
-        scripts: 'src/*.js',
-        styles: 'src/*.scss',
+        scripts: 'assets/javascripts/*.js',
+        styles: 'assets/stylesheets/*.scss',
         dist: 'dist/',
         demo: 'demo/',
       },
