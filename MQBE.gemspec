@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'MQBE/version'
+require 'mqbe/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "MQBE"
-  spec.version       = MQBE::VERSION
+  spec.name          = "mqbe"
+  spec.version       = Mqbe::VERSION
   spec.authors       = ["carloscabo"]
   spec.email         = ["carloscabo@gmail.com"]
 
@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   # spec.metadata['allowed_push_host'] = "https://rubygems.org"
 
-  spec.files         = Dir["{lib,dist}/**/*"]
+  spec.files         = Dir["{lib,assets}/**/*"]
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
